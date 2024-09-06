@@ -13,7 +13,7 @@ public class GameOverMenu : MonoBehaviour
     // This method is called when the "Main Menu" button is clicked
     public void LoadMainMenu()
     {
-        // Assuming the main menu scene is named "MainMenu"
-        SceneManager.LoadScene("MainMenu");
+        // Load the scene named "mainMenu" as per the build settings
+        SceneManager.LoadScene("mainMenu");
     }
 }
