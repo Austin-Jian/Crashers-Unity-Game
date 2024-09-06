@@ -1,0 +1,37 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+
+# Ignore unnecessary files and folders in Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+MemoryCaptures/
+
+# Asset meta data should be included
+*.pidb.meta
+*.pidb
+
+# Ignore Unity debug symbol files
+*.pdb
+*.mdb
+*.opendb
+
+# Crashlytics generated files
+crashlytics-build.properties
+
+# Ignore auto-generated VS/MD/Consulo solution and project files
+ExportedObj/
+.consulo/
+.vscode/
+.vscode/*
+*.csproj
+*.unityproj
+*.sln
+*.sln.docstates
+*.userprefs
+*.pidb
+*.booproj
+
