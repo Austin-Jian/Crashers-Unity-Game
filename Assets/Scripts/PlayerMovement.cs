@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;  // TextMeshPro namespace
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 0.2f;
     public float jumpDuration = 0.1f;
     public GameObject gameOverUI;
+    public TMP_Text highestScoreText;  // Reference to a TMP_Text for displaying the highest score
+    public TMP_Text scoreText;         // Reference to a TMP_Text for displaying the current score
     public SectionTrigger sectionTrigger;
 
     public AudioClip jumpClip;
@@ -21,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float minX = 173f;
     private float maxX = 187f;
+
+    // Score variables
+    private int score = 0;
+    private int highestScore = 0;  // Track highest score
 
     void Start()
     {
@@ -48,6 +54,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("AudioSource component is missing on the player object!");
         }
+
+        // Load the highest score from PlayerPrefs
+        highestScore = PlayerPrefs.GetInt("HighestScore", 0);  // Default value is 0 if none is saved
+
+        // Initialize the score display
+        UpdateScoreUI();
     }
 
     void Update()
@@ -75,12 +87,18 @@ public class PlayerMovement : MonoBehaviour
         {
             zOffset = -moveOffset;
             hasMoved = true;
+
+            // Decrease score when W is pressed
+            UpdateScore(-1);
         }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             zOffset = moveOffset;
             hasMoved = true;
+
+            // Increase score when S is pressed
+            UpdateScore(1);
         }
 
         // If movement is triggered, calculate the target position and clamp the X value
@@ -180,14 +198,43 @@ public class PlayerMovement : MonoBehaviour
             audioSource.PlayOneShot(deathClip);
         }
 
-        // Display the Game Over UI
+        // Check if the current score is higher than the saved highest score
+        if (score > highestScore)
+        {
+            highestScore = score;
+            PlayerPrefs.SetInt("HighestScore", highestScore);  // Save the new highest score
+        }
+
+        // Display the Game Over UI and the highest score
         if (gameOverUI != null)
         {
+            highestScoreText.text = "Highest Score: " + highestScore;
             gameOverUI.SetActive(true);
         }
         else
         {
             Debug.LogError("Game Over UI is not assigned in the Inspector!");
+        }
+    }
+
+    // Update the score and UI
+    private void UpdateScore(int value)
+    {
+        // Update the score, but ensure it doesn't drop below 0
+        score = Mathf.Max(0, score + value);
+        UpdateScoreUI();
+    }
+
+    // Update the score text in the UI using TMP_Text
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = score.ToString();  // Display only the score
+        }
+        else
+        {
+            Debug.LogError("Score Text (TMP) is not assigned in the Inspector!");
         }
     }
 }

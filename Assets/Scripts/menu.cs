@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Load Scene
+    // Load Main Game Scene (next in the list, e.g., after Main Menu)
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    // Go to the Character Selection Scene
+    public void GoToCharacterSelection()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);  // Ensure the scene name matches exactly in the Build Settings
     }
 
     // Quit Game

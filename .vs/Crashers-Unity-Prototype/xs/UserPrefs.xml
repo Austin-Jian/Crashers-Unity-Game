@@ -1,9 +1,16 @@
 ﻿<Properties StartupConfiguration="{EEFCD1B3-24DF-6F48-EF1F-03689C646319}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameOver.cs">
     <Files>
-      <File FileName="Assets/Scripts/menu.cs" Line="15" Column="23" />
-      <File FileName="Assets/Scripts/movingObstacles.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/menu.cs" Line="27" Column="1" />
+      <File FileName="Assets/Scripts/movingObstacles.cs" />
       <File FileName="Assets/Scripts/GameOver.cs" Line="20" Column="1" />
+      <File FileName="Assets/Scripts/CharacterSelection.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/selectAnimation.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/moveFloor.cs" />
+      <File FileName="Assets/Scripts/characterToMenu.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="28" Column="10" />
+      <File FileName="Assets/Scripts/bgMusicControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/loadCharaceter.cs" Line="29" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,6 +20,9 @@
               <Node name="Scripts" expanded="True">
                 <Node name="GameOver.cs" selected="True" />
               </Node>
+              <Node name="TextMesh Pro" expanded="True">
+                <Node name="Shaders" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -21,7 +31,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3f9c1d8a-db06-4753-9048-67effa3c9481" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9e1913c2-7c3d-419a-95aa-68bcbc0f22dd" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
